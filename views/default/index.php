@@ -1,14 +1,13 @@
-<?php
-$this->breadcrumbs=array(
-	$this->module->id,
-);
-?>
-<h1><?php echo $this->uniqueId . '/' . $this->action->id; ?></h1>
+<?php $this->breadcrumbs = array($this->module->id); ?>
 
-<p>
-This is the view content for action "<?php echo $this->action->id; ?>".
-The action belongs to the controller "<?php echo get_class($this); ?>" in the "<?php echo $this->module->id; ?>" module.
-</p>
-<p>
-You may customize this page by editing <tt><?php echo __FILE__; ?></tt>
-</p>
+<h1>Notifyii</h1>
+
+
+<?php
+$notifyii = new Notifyii();
+$notifyii->expire(new DateTime("21-12-2012"));
+$notifyii->from("-1 week");
+$notifyii->to("+1 day");
+
+echo $notifyii;
+
