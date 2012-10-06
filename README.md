@@ -21,6 +21,11 @@ And try to load these routes:
 The first one show you a sample page that create a sample notification. The second
 one show you a crud to alter notifications.
 
+If you want you can add these items to views/layouts/main.php file:
+
+    array('label'=>'Notifyii', 'url'=>array('/notifyii')),
+    array('label'=>'ModelNotifyii', 'url'=>array('/notifyii/modelNotifyii')),
+
 Run mugrations
 --------------
 
