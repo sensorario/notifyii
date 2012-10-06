@@ -2,12 +2,10 @@
 
 <h1>Notifyii</h1>
 
+<a href="<?php echo $this->createUrl('addEndOfWorld'); ?>">create a notification for the end of the world</a>
 
-<?php
-$notifyii = new Notifyii();
-$notifyii->expire(new DateTime("21-12-2012"));
-$notifyii->from("-1 week");
-$notifyii->to("+1 day");
-
-echo $notifyii;
-
+<?php foreach ($notifiche as $notifica) : ?>
+    <div class="box">
+        <?php echo $notifica->expire; ?> - <?php echo $notifica->content; ?>
+    </div>
+<?php endforeach; ?>

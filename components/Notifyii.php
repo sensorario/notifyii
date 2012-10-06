@@ -6,11 +6,19 @@
 class Notifyii extends CComponent
 {
     private $expire;
+    private $message;
+    private $alert_after_date;
+    private $alert_before_date;
 
     const ONE_DAY_AFTER = "+1 day";
     const ONE_WEEK_AFTER = "+1 week";
     const ONE_DAY_BEFORE = "-1 day";
     const ONE_WEEK_BEFORE = "-1 week";
+
+    public function message($message = 'empty message')
+    {
+        $this->message = $message;
+    }
 
     public function expire(DateTime $expire)
     {
@@ -44,6 +52,9 @@ class Notifyii extends CComponent
         if (!in_array($start, $valid)) {
             throw new Exception;
         }
+
+        $expire = clone $this->expire;
+        $this->alert_after_date = $expire->modify($start);
     }
 
     public function to($end)
@@ -56,6 +67,9 @@ class Notifyii extends CComponent
         if (!in_array($end, $valid)) {
             throw new Exception;
         }
+
+        $expire = clone $this->expire;
+        $this->alert_before_date = $expire->modify($end);
     }
 
     public function __toString()
@@ -73,6 +87,20 @@ class Notifyii extends CComponent
         $minutes = $seconds / 60;
         $hours = $minutes / 60;
         return ceil($hours / 24);
+    }
+
+    public function save()
+    {
+        $expire = $this->expire->getTimestamp();
+        $after = $this->alert_after_date->getTimestamp();
+        $before = $this->alert_before_date->getTimestamp();
+
+        $notifyii = new ModelNotifyii();
+        $notifyii->expire = date('Y-m-d', $expire);
+        $notifyii->alert_after_date = date('Y-m-d', $after);
+        $notifyii->alert_before_date = date('Y-m-d', $before);
+        $notifyii->content = $this->message;
+        $notifyii->save();
     }
 
 }
