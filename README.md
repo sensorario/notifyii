@@ -4,14 +4,10 @@ notifyii
 Run mugrations
 --------------
 
-::
-
     /var/www/Notifyii/protected$ ./yiic migrate --migrationPath=webroot.modules.notifyii.migrations
 
 Notify the end of the world
 ---------------------------
-
-::
 
     $notifyii = new Notifyii();
     $notifyii->message('The end of the world');
