@@ -9,6 +9,7 @@
  * @property string $alert_after_date
  * @property string $alert_before_date
  * @property string $content
+ * @property string $role
  */
 class ModelNotifyii extends CActiveRecord
 {
@@ -38,10 +39,10 @@ class ModelNotifyii extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('expire, alert_after_date, alert_before_date, content', 'safe'),
+            array('expire, alert_after_date, alert_before_date, content, role', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, expire, alert_after_date, alert_before_date, content', 'safe', 'on' => 'search'),
+            array('id, expire, alert_after_date, alert_before_date, content, role', 'safe', 'on' => 'search'),
         );
     }
 
@@ -67,6 +68,7 @@ class ModelNotifyii extends CActiveRecord
             'alert_after_date' => 'Alert After Date',
             'alert_before_date' => 'Alert Before Date',
             'content' => 'Content',
+            'role' => 'Role',
         );
     }
 
@@ -88,6 +90,7 @@ class ModelNotifyii extends CActiveRecord
         $criteria->compare('alert_after_date', $this->alert_after_date, true);
         $criteria->compare('alert_before_date', $this->alert_before_date, true);
         $criteria->compare('content', $this->content, true);
+        $criteria->compare('role', $this->role, true);
 
         return new CActiveDataProvider($this, array(
                     'criteria' => $criteria,
