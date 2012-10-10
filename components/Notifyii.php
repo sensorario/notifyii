@@ -7,6 +7,7 @@ class Notifyii extends CComponent
 {
     private $expire;
     private $message;
+    private $role;
     private $alert_after_date;
     private $alert_before_date;
 
@@ -18,6 +19,11 @@ class Notifyii extends CComponent
     public function message($message = 'empty message')
     {
         $this->message = $message;
+    }
+
+    public function role($role = 'admin')
+    {
+        $this->role = $role;
     }
 
     public function expire(DateTime $expire)
@@ -100,6 +106,7 @@ class Notifyii extends CComponent
         $notifyii->alert_after_date = date('Y-m-d', $after);
         $notifyii->alert_before_date = date('Y-m-d', $before);
         $notifyii->content = $this->message;
+        $notifyii->role = $this->role;
         $notifyii->save();
     }
 

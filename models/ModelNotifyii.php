@@ -101,4 +101,20 @@ class ModelNotifyii extends CActiveRecord
         return $notifiche;
     }
 
+    public static function getAllRoledNotifications($role = 'admin')
+    {
+        $criteria = new CDbCriteria(array(
+                    'condition' => ':now >= t.alert_after_date AND :now <= t.alert_before_date AND t.role = :role',
+                    'params' => array(
+                        ':now' => date('Y-m-d'),
+                        ':role' => $role,
+                    )
+                ));
+
+        $notifiche = ModelNotifyii::model()
+                ->findAll($criteria);
+
+        return $notifiche;
+    }
+
 }

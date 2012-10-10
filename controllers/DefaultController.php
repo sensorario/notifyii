@@ -16,6 +16,7 @@ class DefaultController extends Controller
         $notifyii->expire(new DateTime("21-12-2012"));
         $notifyii->from("-1 week");
         $notifyii->to("+1 day");
+        $notifyii->role("admin");
         $notifyii->save();
 
         $url = $this->createUrl('index');

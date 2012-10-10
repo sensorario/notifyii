@@ -39,9 +39,11 @@ Notify the end of the world
     $notifyii->expire(new DateTime("21-12-2012"));
     $notifyii->from("-1 week");
     $notifyii->to("+1 day");
+    $notifyii->role("admin");
     $notifyii->save();
 
 Get all notifications
 ---------------------
 
     ModelNotifyii::getAllNotifications()
+    ModelNotifyii::getAllRoledNotifications()
