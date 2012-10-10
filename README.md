@@ -40,3 +40,8 @@ Notify the end of the world
     $notifyii->from("-1 week");
     $notifyii->to("+1 day");
     $notifyii->save();
+
+Get all notifications
+---------------------
+
+    ModelNotifyii::getAllNotifications()
