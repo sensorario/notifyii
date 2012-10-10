@@ -4,18 +4,8 @@ class DefaultController extends Controller
 {
     public function actionIndex()
     {
-        $criteria = new CDbCriteria(array(
-                    'condition' => ':now >= t.alert_after_date AND :now <= t.alert_before_date',
-                    'params' => array(
-                        ':now' => date('Y-m-d')
-                    )
-                ));
-
-        $notifiche = ModelNotifyii::model()
-                ->findAll($criteria);
-
         $this->render('index', array(
-            'notifiche' => $notifiche
+            'notifiche' => ModelNotifyii::getAllNotifications()
         ));
     }
 

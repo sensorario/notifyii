@@ -76,8 +76,8 @@ class ModelNotifyii extends CActiveRecord
      */
     public function search()
     {
-        
-        
+
+
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
 
@@ -92,6 +92,21 @@ class ModelNotifyii extends CActiveRecord
         return new CActiveDataProvider($this, array(
                     'criteria' => $criteria,
                 ));
+    }
+
+    public static function getAllNotifications()
+    {
+        $criteria = new CDbCriteria(array(
+                    'condition' => ':now >= t.alert_after_date AND :now <= t.alert_before_date',
+                    'params' => array(
+                        ':now' => date('Y-m-d')
+                    )
+                ));
+
+        $notifiche = ModelNotifyii::model()
+                ->findAll($criteria);
+
+        return $notifiche;
     }
 
 }
