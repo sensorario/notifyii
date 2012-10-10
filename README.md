@@ -1,4 +1,4 @@
-notifyii
+Notifyii
 ========
 
 To install notifyii, navigate to the forlder "protected/modules" of your project.
