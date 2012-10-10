@@ -15,8 +15,8 @@ Now you just need to add module to confi file:
 
 And try to load these routes:
 
-#. index.php?r=notifyii
-#. index.php?r=notifyii/modelNotifyii
+    index.php?r=notifyii
+    index.php?r=notifyii/modelNotifyii
 
 The first one show you a sample page that create a sample notification. The second
 one show you a crud to alter notifications.
@@ -26,10 +26,10 @@ If you want you can add these items to views/layouts/main.php file:
     array('label'=>'Notifyii', 'url'=>array('/notifyii')),
     array('label'=>'ModelNotifyii', 'url'=>array('/notifyii/modelNotifyii')),
 
-Run mugrations
+Run migrations
 --------------
 
-    /var/www/Notifyii/protected$ ./yiic migrate --migrationPath=webroot.modules.notifyii.migrations
+    /var/www/YOUR_APP_NAME/protected$ ./yiic migrate --migrationPath=webroot.modules.notifyii.migrations
 
 Notify the end of the world
 ---------------------------
