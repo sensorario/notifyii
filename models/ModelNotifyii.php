@@ -36,12 +36,8 @@ class ModelNotifyii extends CActiveRecord
      */
     public function rules()
     {
-        // NOTE: you should only define rules for those attributes that
-        // will receive user inputs.
         return array(
             array('expire, alert_after_date, alert_before_date, content, role', 'safe'),
-            // The following rule is used by search().
-            // Please remove those attributes that should not be searched.
             array('id, expire, alert_after_date, alert_before_date, content, role', 'safe', 'on' => 'search'),
         );
     }
@@ -51,8 +47,6 @@ class ModelNotifyii extends CActiveRecord
      */
     public function relations()
     {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
         return array(
         );
     }
@@ -78,11 +72,6 @@ class ModelNotifyii extends CActiveRecord
      */
     public function search()
     {
-
-
-        // Warning: Please modify the following code to remove attributes that
-        // should not be searched.
-
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id);
