@@ -1,7 +1,11 @@
 Notifyii
 ========
 
-    If you want to use notifyii with roles, extensions like "rights" or RBAC are required
+    If you want to use notifyii with roles, extensions like "rights" or RBAC are required.
+
+    Be shure to have the same 'db' configuratiion in these files:
+    protected/config/main.php
+    protected/config/console.php
 
 To install notifyii, navigate to the forlder "protected/modules" of your project. If your project does not have any "modules" folder, just create id. Then, run the command:
 
