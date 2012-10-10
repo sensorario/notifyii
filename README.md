@@ -1,12 +1,9 @@
 Notifyii
 ========
 
-    If you want to use *notifyii* with roles, extensions like "rights" or RBAC
-    are required
+    If you want to use notifyii with roles, extensions like "rights" or RBAC are required
 
-To install notifyii, navigate to the forlder "protected/modules" of your project.
-If your project does not have any "modules" folder, just create id. Then, run the
-command:
+To install notifyii, navigate to the forlder "protected/modules" of your project. If your project does not have any "modules" folder, just create id. Then, run the command:
 
     $ git clone git@github.com:sensorario/notifyii
 
@@ -21,8 +18,7 @@ And try to load these routes:
     index.php?r=notifyii
     index.php?r=notifyii/modelNotifyii
 
-The first one show you a sample page that create a sample notification. The second
-one show you a crud to alter notifications.
+The first one show you a sample page that create a sample notification. The second one show you a crud to alter notifications.
 
 If you want you can add these items to views/layouts/main.php file:
 
