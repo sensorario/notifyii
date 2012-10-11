@@ -49,6 +49,7 @@ class ModelNotifyii extends CActiveRecord
     public function relations()
     {
         return array(
+            'reads' => array(self::HAS_MANY, 'NotifyiiReads', 'notification_id'),
         );
     }
 

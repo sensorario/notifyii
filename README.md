@@ -28,6 +28,7 @@ If you want you can add these items to views/layouts/main.php file:
 
     array('label'=>'Notifyii', 'url'=>array('/notifyii')),
     array('label'=>'ModelNotifyii', 'url'=>array('/notifyii/modelNotifyii')),
+    array('label'=>'NotifyiiReads', 'url'=>array('/notifyii/notifyiiReads')),
 
 Run migrations
 --------------

@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table 'notifyii_reads':
  * @property integer $id
- * @property integer $user_id
+ * @property integer $username
  * @property integer $notification_id
  * @property integer $readed
  */
@@ -34,13 +34,10 @@ class NotifyiiReads extends CActiveRecord
      */
     public function rules()
     {
-        // NOTE: you should only define rules for those attributes that
-        // will receive user inputs.
         return array(
-            array('user_id, notification_id, readed', 'numerical', 'integerOnly' => true),
-            // The following rule is used by search().
-            // Please remove those attributes that should not be searched.
-            array('id, user_id, notification_id, readed', 'safe', 'on' => 'search'),
+            array('username', 'required'),
+            array('notification_id, readed', 'numerical', 'integerOnly' => true),
+            array('id, username, notification_id, readed', 'safe', 'on' => 'search'),
         );
     }
 
@@ -62,7 +59,7 @@ class NotifyiiReads extends CActiveRecord
     {
         return array(
             'id' => 'ID',
-            'user_id' => 'User',
+            'username' => 'User',
             'notification_id' => 'Notification',
             'readed' => 'Readed',
         );
@@ -80,7 +77,7 @@ class NotifyiiReads extends CActiveRecord
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id);
-        $criteria->compare('user_id', $this->user_id);
+        $criteria->compare('username', $this->username);
         $criteria->compare('notification_id', $this->notification_id);
         $criteria->compare('readed', $this->readed);
 

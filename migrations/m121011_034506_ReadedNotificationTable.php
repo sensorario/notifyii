@@ -6,7 +6,7 @@ class m121011_034506_ReadedNotificationTable extends CDbMigration
     {
         $this->createTable('notifyii_reads', array(
             'id' => 'pk',
-            'user_id' => 'integer',
+            'username' => 'string',
             'notification_id' => 'integer',
             'readed' => 'boolean',
         ));
