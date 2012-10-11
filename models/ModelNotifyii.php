@@ -121,4 +121,22 @@ class ModelNotifyii extends CActiveRecord
         return $notifiche;
     }
 
+    public function isNotReaded()
+    {
+        return !$this->isReaded();
+    }
+
+    public function isReaded()
+    {
+        if (is_array($this->reads)) {
+            foreach ($this->reads as $reads) {
+                if ($reads->username === Yii::app()->user->id) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
 }
