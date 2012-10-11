@@ -8,6 +8,7 @@ class Notifyii extends CComponent
     private $expire;
     private $message;
     private $role;
+    private $link;
     private $alert_after_date;
     private $alert_before_date;
 
@@ -15,6 +16,11 @@ class Notifyii extends CComponent
     const ONE_WEEK_AFTER = "+1 week";
     const ONE_DAY_BEFORE = "-1 day";
     const ONE_WEEK_BEFORE = "-1 week";
+
+    public function link($link = null)
+    {
+        $this->link = $link;
+    }
 
     public function message($message = 'empty message')
     {
@@ -107,6 +113,7 @@ class Notifyii extends CComponent
         $notifyii->alert_before_date = date('Y-m-d', $before);
         $notifyii->content = $this->message;
         $notifyii->role = $this->role;
+        $notifyii->link = $this->link;
         $notifyii->save();
     }
 
