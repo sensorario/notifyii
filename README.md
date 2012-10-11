@@ -21,6 +21,7 @@ And try to load these routes:
 
     index.php?r=notifyii
     index.php?r=notifyii/modelNotifyii
+    index.php?r=notifyii/notifyiiReads
 
 The first one show you a sample page that create a sample notification. The second one show you a crud to alter notifications.
 
