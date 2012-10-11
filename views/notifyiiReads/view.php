@@ -22,7 +22,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'user_id',
+		'username',
 		'notification_id',
 		'readed',
 	),
