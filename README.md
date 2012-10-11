@@ -50,3 +50,24 @@ Get all notifications
 
     ModelNotifyii::getAllNotifications()
     ModelNotifyii::getAllRoledNotifications()
+
+Usage
+-----
+
+Suppose to load all notifications in your controller:
+
+    public function actionIndex()
+    {
+        $this->render('index', array(
+            'notifiche' => ModelNotifyii::getAllNotifications()
+        ));
+    }
+
+In the view, you can load all notifications
+
+    <?php foreach ($notifiche as $notifica) : ?>
+        <div class="box">
+            <a href="<?php echo $notifica->link; ?>"><?php echo $notifica->expire; ?></a> - 
+            <a href="<?php echo $notifica->link; ?>"><?php echo $notifica->content; ?></a>
+        </div>
+    <?php endforeach; ?>

@@ -6,6 +6,7 @@
 
 <?php foreach ($notifiche as $notifica) : ?>
     <div class="box">
-        <?php echo $notifica->expire; ?> - <?php echo $notifica->content; ?>
+        <a href="<?php echo $notifica->link; ?>"><?php echo $notifica->expire; ?></a> - 
+        <a href="<?php echo $notifica->link; ?>"><?php echo $notifica->content; ?></a>
     </div>
 <?php endforeach; ?>
