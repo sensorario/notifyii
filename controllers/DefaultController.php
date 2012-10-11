@@ -17,6 +17,7 @@ class DefaultController extends Controller
         $notifyii->from("-1 week");
         $notifyii->to("+1 day");
         $notifyii->role("admin");
+        $notifyii->link($this->createUrl('site/index'));
         $notifyii->save();
 
         $url = $this->createUrl('index');
