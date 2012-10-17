@@ -24,6 +24,7 @@
                 'name'=>'ModelNotifyii[expire]',
                 'options'=>array(
                     'showAnim'=>'fold',
+                    'dateFormat'=>'yy-mm-dd'
                 ),
                 'htmlOptions'=>array(
                     'style'=>'height:20px;'
@@ -40,6 +41,7 @@
                 'name'=>'ModelNotifyii[alert_after_date]',
                 'options'=>array(
                     'showAnim'=>'fold',
+                    'dateFormat'=>'yy-mm-dd'
                 ),
                 'htmlOptions'=>array(
                     'style'=>'height:20px;'
@@ -56,6 +58,7 @@
                 'name'=>'ModelNotifyii[alert_before_date]',
                 'options'=>array(
                     'showAnim'=>'fold',
+                    'dateFormat'=>'yy-mm-dd'
                 ),
                 'htmlOptions'=>array(
                     'style'=>'height:20px;'
