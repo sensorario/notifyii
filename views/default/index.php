@@ -2,7 +2,7 @@
 
 <h1>Notifyii</h1>
 
-<p>In this page you can see the list of notifications. If you do not see any notification, just means that have not already created notifications.</p>
+<p>In this page you can see the list of notifications. If you do not see any notification, just means that you have not already created notifications.</p>
 
 <a href="<?php echo $this->createUrl('addEndOfWorld'); ?>">create a notification for the end of the world</a>
 

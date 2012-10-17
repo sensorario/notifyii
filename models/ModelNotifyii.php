@@ -38,7 +38,8 @@ class ModelNotifyii extends CActiveRecord
     public function rules()
     {
         return array(
-            array('expire, alert_after_date, alert_before_date, content, role, link', 'safe'),
+            array('expire, content', 'required'),
+            array('alert_after_date, alert_before_date, role, link', 'safe'),
             array('id, expire, alert_after_date, alert_before_date, content, role, link', 'safe', 'on' => 'search'),
         );
     }
@@ -137,6 +138,19 @@ class ModelNotifyii extends CActiveRecord
         }
 
         return false;
+    }
+
+    public function beforeSave()
+    {
+        if($this->alert_after_date === "") {
+            $this->alert_after_date = $this->expire;
+        }
+
+        if($this->alert_before_date === "") {
+            $this->alert_before_date = $this->expire;
+        }
+
+        return parent::beforeSave();
     }
 
 }
