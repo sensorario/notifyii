@@ -19,20 +19,50 @@
 
     <div class="row">
         <?php echo $form->labelEx($model, 'expire'); ?>
-        <?php echo $form->textField($model, 'expire'); ?>
+        <?php
+            $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                'name'=>'ModelNotifyii[expire]',
+                'options'=>array(
+                    'showAnim'=>'fold',
+                ),
+                'htmlOptions'=>array(
+                    'style'=>'height:20px;'
+                ),
+            ));
+        ?>
         <?php echo $form->error($model, 'expire'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model, 'alert_after_date'); ?>
-        <?php echo $form->textField($model, 'alert_after_date'); ?>
+        <?php
+            $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                'name'=>'ModelNotifyii[alert_after_date]',
+                'options'=>array(
+                    'showAnim'=>'fold',
+                ),
+                'htmlOptions'=>array(
+                    'style'=>'height:20px;'
+                ),
+            ));
+        ?>
         <?php echo $form->error($model, 'alert_after_date'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model, 'alert_before_date'); ?>
-        <?php echo $form->textField($model, 'alert_before_date'); ?>
-        <?php echo $form->error($model, 'alert_before_date'); ?>
+        <?php
+            $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                'name'=>'ModelNotifyii[alert_before_date]',
+                'options'=>array(
+                    'showAnim'=>'fold',
+                ),
+                'htmlOptions'=>array(
+                    'style'=>'height:20px;'
+                ),
+            ));
+        ?>
+	<?php echo $form->error($model, 'alert_before_date'); ?>
     </div>
 
     <div class="row">
