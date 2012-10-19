@@ -6,9 +6,13 @@
 
 <?php
     // Load all roles from database
-    $roles = Yii::app()->db
+    $rolesReulst = Yii::app()->db
                        ->createCommand('select name from AuthItem where type = 2;')
                        ->queryAll();
+    $roles = array();
+    foreach($rolesReulst as $role) {
+        $roles[$role['name']] = $role['name'];
+    }
 ?>
 
 <div class="form">
