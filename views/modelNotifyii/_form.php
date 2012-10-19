@@ -4,6 +4,13 @@
 /* @var $form CActiveForm */
 ?>
 
+<?php
+    // Load all roles from database
+    $roles = Yii::app()->db
+                       ->createCommand('select name from AuthItem where type = 2;')
+                       ->queryAll();
+?>
+
 <div class="form">
 
     <?php
@@ -71,6 +78,12 @@
     <div class="row">
         <?php echo $form->labelEx($model, 'content'); ?>
         <?php echo $form->textField($model, 'content'); ?>
+        <?php echo $form->error($model, 'content'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model, 'role'); ?>
+        <?php echo $form->dropDownList($model, 'role', $roles); ?>
         <?php echo $form->error($model, 'content'); ?>
     </div>
 
