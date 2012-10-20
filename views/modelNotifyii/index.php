@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Notifyiis',
+	'Notifyii',
 );
 
 $this->menu=array(
@@ -13,6 +13,10 @@ $this->menu=array(
 ?>
 
 <h1>Notifyiis</h1>
+
+<div class="box">
+    <h3>In this page you can see all notification created.</h3>
+</div>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

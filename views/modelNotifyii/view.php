@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Notifyiis'=>array('index'),
-	$model->id,
+	$model->content,
 );
 
 $this->menu=array(
@@ -16,12 +16,18 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Notifyii #<?php echo $model->id; ?></h1>
+<h1>Notification: <strong><?php echo $model->content; ?></strong></h1>
+
+<div class="box">
+    <h3>In this page you can see a detail of a notification.</h3>
+</div>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'expire',
-	),
+    'data'=>$model,
+    'attributes'=>array(
+        'expire',
+        'alert_after_date',
+        'alert_before_date',
+        'role',
+    ),
 )); ?>

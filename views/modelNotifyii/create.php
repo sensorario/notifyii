@@ -3,7 +3,7 @@
 /* @var $model Notifyii */
 
 $this->breadcrumbs=array(
-	'Notifyiis'=>array('index'),
+	'Notifyii'=>array('index'),
 	'Create',
 );
 
@@ -14,5 +14,9 @@ $this->menu=array(
 ?>
 
 <h1>Create Notifyii</h1>
+
+<div class="box">
+    <h3>In this page you can create your notitication.</h3>
+</div>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
