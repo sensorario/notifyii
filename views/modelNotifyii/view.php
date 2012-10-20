@@ -31,3 +31,26 @@ $this->menu=array(
         'role',
     ),
 )); ?>
+
+<div class="clear">&nbsp;</div>
+<hr />
+
+<div class="box">
+    
+    <h3>Readers</h3>
+
+    <?php $readers = NotifyiiReads::model()->findAll(new CDbCriteria(array(
+        'condition' => 'notification_id=:notification_id',
+        'params' => array(
+            'notification_id' => $model->id
+        )
+    ))); ?>
+    <?php if(count($readers) === 0) : ?>
+        <em>No readers</em>
+    <?php else: ?>
+        <?php foreach($readers as $reader) : ?>
+            <?php echo $reader->username; ?>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+</div>
