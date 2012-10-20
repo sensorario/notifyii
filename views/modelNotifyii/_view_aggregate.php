@@ -3,7 +3,6 @@
 /* @var $data Notifyii */
 ?>
 
-
 <?php if(!(trim($data->role) === "")) : ?>
     <div class="view">
         <b><?php echo CHtml::encode($data->getAttributeLabel('role')); ?>:</b>
