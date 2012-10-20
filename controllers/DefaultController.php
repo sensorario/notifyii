@@ -16,8 +16,15 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
+        $notifiche = ModelNotifyii::getAllNotifications();
+        foreach ($notifiche as $notifica) {
+            if($notifica->isNotReaded()) {
+                Yii::app()->user->setFlash('success', $notifica->content);
+            }
+        }
+
         $this->render('index', array(
-            'notifiche' => ModelNotifyii::getAllNotifications()
+            'notifiche' => $notifiche,
         ));
     }
 

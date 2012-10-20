@@ -4,8 +4,7 @@
 
 <p>In this page you can see the list of notifications. If you do not see any notification, just means that you have not already created notifications.</p>
 
-<a href="<?php echo $this->createUrl('addEndOfWorld'); ?>">create a notification for the end of the world</a>
-
+<h3 class="box">Show from database ($notifiche)</h3>
 <?php foreach ($notifiche as $notifica) : ?>
     <?php if ($notifica->isNotReaded()) : ?>
         <div class="box">
@@ -15,3 +14,17 @@
         </div>
     <?php endif; ?>
 <?php endforeach; ?>
+
+<h3 class="box">Show with Flash messages</h3>
+<?php foreach(Yii::app()->user->getFlashes() as $key => $message) : ?>
+    <?php echo '<div class="flash-' . $key . ' info">' . $message . "</div>\n"; ?>
+<?php endforeach; ?>
+
+<h3 class="box">Create notification for the end of the world</h3>
+<a href="<?php echo $this->createUrl('addEndOfWorld'); ?>">create</a>
+
+<?php Yii::app()->clientScript->registerScript(
+   'myHideEffect',
+   '$(".info").animate({opacity: 1.0}, 3000).fadeOut("slow");',
+   CClientScript::POS_READY
+); ?>
