@@ -32,11 +32,11 @@ class ModelNotifyiiController extends Controller
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update'),
+                'actions' => array('create', 'update', 'aggregate'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('admin', 'delete'),
+                'actions' => array('admin', 'delete', 'aggregate'),
                 'users' => array('admin'),
             ),
             array('deny', // deny all users
@@ -122,6 +122,27 @@ class ModelNotifyiiController extends Controller
     {
         $dataProvider = new CActiveDataProvider('ModelNotifyii');
         $this->render('index', array(
+            'dataProvider' => $dataProvider,
+        ));
+    }
+
+    /**
+     * Lists all models aggregated by role.
+     */
+    public function actionAggregate()
+    {
+        $this->layout = '//layouts/column1';
+
+        $dataProvider = new CActiveDataProvider('ModelNotifyii', array(
+            'criteria' => array(
+                'distinct' => true,
+                'select' => array(
+                    'role'
+                )
+            )
+        ));
+
+        $this->render('aggregate', array(
             'dataProvider' => $dataProvider,
         ));
     }

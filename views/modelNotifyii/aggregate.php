@@ -3,12 +3,12 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Notifyii',
+    'Notifyii',
 );
 
 $this->menu=array(
-	array('label'=>'Create Notifyii', 'url'=>array('create')),
-	array('label'=>'Manage Notifyii', 'url'=>array('admin')),
+    array('label'=>'Create Notifyii', 'url'=>array('create')),
+    array('label'=>'Manage Notifyii', 'url'=>array('admin')),
 );
 ?>
 
@@ -18,9 +18,7 @@ $this->menu=array(
     <h3>In this page you can see all notification created.</h3>
 </div>
 
-<a href="<?php echo $this->createUrl('/notifyii/modelNotifyii/aggregate'); ?>">Mostra i dati aggregati per ruolo</a>
-
 <?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+    'dataProvider' => $dataProvider,
+    'itemView' => '_view_aggregate',
 )); ?>
