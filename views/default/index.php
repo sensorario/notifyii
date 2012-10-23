@@ -13,7 +13,7 @@
         <?php endwhile; ?>
     </div>
     <div class="span-7 box last">
-        <h4>On the t you can see the list of notifications displayed as flash message.</h4>
+        <h4>On the left you can see the list of notifications displayed as flash message.</h4>
     </div>
 </div>
 
