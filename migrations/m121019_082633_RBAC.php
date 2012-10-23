@@ -2,6 +2,7 @@
 
 class m121019_082633_RBAC extends CDbMigration
 {
+
     public function up()
     {
         try {
@@ -39,7 +40,7 @@ class m121019_082633_RBAC extends CDbMigration
     public function down()
     {
         echo "m121019_082633_RBAC does not support migration down.\n";
-	return false;
+        return false;
     }
 
 }

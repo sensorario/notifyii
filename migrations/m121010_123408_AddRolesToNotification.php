@@ -2,6 +2,7 @@
 
 class m121010_123408_AddRolesToNotification extends CDbMigration
 {
+
     public function up()
     {
         $this->addColumn('notifyii', 'role', 'string');

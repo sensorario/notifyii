@@ -17,8 +17,12 @@
     <?php echo CHtml::encode($data->alert_before_date); ?>
     <br />
 
+    <b><?php echo CHtml::encode($data->getAttributeLabel('title')); ?>:</b>
+    <?php echo CHtml::link(CHtml::encode($data->title), array('view', 'id' => $data->id)); ?>
+    <br />
+
     <b><?php echo CHtml::encode($data->getAttributeLabel('content')); ?>:</b>
-    <?php echo CHtml::link(CHtml::encode($data->content), array('view', 'id'=>$data->id)); ?>
+    <?php echo CHtml::link(CHtml::encode($data->content), array('view', 'id' => $data->id)); ?>
     <br />
 
     <?php if(!(trim($data->role) === "")) : ?>

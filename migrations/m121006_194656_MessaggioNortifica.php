@@ -2,6 +2,7 @@
 
 class m121006_194656_MessaggioNortifica extends CDbMigration
 {
+
     public function up()
     {
         $this->addColumn('notifyii', 'content', 'text');

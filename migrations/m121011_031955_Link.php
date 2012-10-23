@@ -2,6 +2,7 @@
 
 class m121011_031955_Link extends CDbMigration
 {
+
     public function up()
     {
         $this->addColumn('notifyii', 'link', 'string');

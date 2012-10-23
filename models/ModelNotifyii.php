@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'notifyii':
  * @property integer $id
+ * @property string $title
  * @property string $expire
  * @property string $alert_after_date
  * @property string $alert_before_date
@@ -14,6 +15,7 @@
  */
 class ModelNotifyii extends CActiveRecord
 {
+
     /**
      * Returns the static model of the specified AR class.
      * @param string $className active record class name.
@@ -38,9 +40,9 @@ class ModelNotifyii extends CActiveRecord
     public function rules()
     {
         return array(
-            array('expire, content', 'required'),
+            array('expire, content, title', 'required'),
             array('alert_after_date, alert_before_date, role, link', 'safe'),
-            array('id, expire, alert_after_date, alert_before_date, content, role, link', 'safe', 'on' => 'search'),
+            array('id, expire, alert_after_date, alert_before_date, content, role, link, title', 'safe', 'on' => 'search'),
         );
     }
 
@@ -61,6 +63,7 @@ class ModelNotifyii extends CActiveRecord
     {
         return array(
             'id' => 'ID',
+            'title' => 'Title',
             'expire' => 'Expire',
             'alert_after_date' => 'Alert After Date',
             'alert_before_date' => 'Alert Before Date',
@@ -79,6 +82,7 @@ class ModelNotifyii extends CActiveRecord
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id);
+        $criteria->compare('title', $this->title, true);
         $criteria->compare('expire', $this->expire, true);
         $criteria->compare('alert_after_date', $this->alert_after_date, true);
         $criteria->compare('alert_before_date', $this->alert_before_date, true);
@@ -129,9 +133,9 @@ class ModelNotifyii extends CActiveRecord
 
     public function isReaded()
     {
-        if (is_array($this->reads)) {
+        if(is_array($this->reads)) {
             foreach ($this->reads as $reads) {
-                if ($reads->username === Yii::app()->user->id) {
+                if($reads->username === Yii::app()->user->id) {
                     return true;
                 }
             }

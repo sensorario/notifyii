@@ -2,6 +2,7 @@
 
 class m121006_184459_TabellaNotifiche extends CDbMigration
 {
+
     public function up()
     {
         $this->createTable('notifyii', array(

@@ -2,6 +2,7 @@
 
 class m121011_034506_ReadedNotificationTable extends CDbMigration
 {
+
     public function up()
     {
         $this->createTable('notifyii_reads', array(

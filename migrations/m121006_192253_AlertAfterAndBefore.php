@@ -2,6 +2,7 @@
 
 class m121006_192253_AlertAfterAndBefore extends CDbMigration
 {
+
     public function up()
     {
         $this->addColumn('notifyii', 'alert_after_date', 'date');
