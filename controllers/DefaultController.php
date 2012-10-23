@@ -2,24 +2,27 @@
 
 class DefaultController extends Controller
 {
+
     public function actionRead($id)
     {
         $reads = new NotifyiiReads();
         $reads->username = Yii::app()->user->id;
         $reads->notification_id = $id;
         $reads->readed = true;
-        
+
         $reads->save(false);
-        
+
         $this->redirect($this->createUrl('/notifyii'));
     }
 
     public function actionIndex()
     {
         $notifiche = ModelNotifyii::getAllNotifications();
+        $number = 0;
         foreach ($notifiche as $notifica) {
             if($notifica->isNotReaded()) {
-                Yii::app()->user->setFlash('success', $notifica->content);
+                $number = $number + 1;
+                Yii::app()->user->setFlash('success' . ($number), $notifica->content);
             }
         }
 
