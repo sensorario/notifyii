@@ -37,6 +37,7 @@
                     'showAnim'=>'fold',
                     'dateFormat'=>'yy-mm-dd'
                 ),
+                'value' => $model->expire,
                 'htmlOptions'=>array(
                     'style'=>'height:20px;'
                 ),
@@ -54,6 +55,7 @@
                     'showAnim'=>'fold',
                     'dateFormat'=>'yy-mm-dd'
                 ),
+                'value' => $model->alert_after_date,
                 'htmlOptions'=>array(
                     'style'=>'height:20px;'
                 ),
@@ -71,6 +73,7 @@
                     'showAnim'=>'fold',
                     'dateFormat'=>'yy-mm-dd'
                 ),
+                'value' => $model->alert_before_date,
                 'htmlOptions'=>array(
                     'style'=>'height:20px;'
                 ),
