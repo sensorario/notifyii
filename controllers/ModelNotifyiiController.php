@@ -2,6 +2,7 @@
 
 class ModelNotifyiiController extends Controller
 {
+
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -67,9 +68,9 @@ class ModelNotifyiiController extends Controller
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['ModelNotifyii'])) {
+        if(isset($_POST['ModelNotifyii'])) {
             $model->attributes = $_POST['ModelNotifyii'];
-            if ($model->save())
+            if($model->save())
                 $this->redirect(array('view', 'id' => $model->id));
         }
 
@@ -87,13 +88,18 @@ class ModelNotifyiiController extends Controller
     {
         $model = $this->loadModel($id);
 
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-
-        if (isset($_POST['ModelNotifyii'])) {
+        if(isset($_POST['ModelNotifyii'])) {
             $model->attributes = $_POST['ModelNotifyii'];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->id));
+
+            $idModel = $model->id;
+
+            if($model->save()) {
+                if(count(ModelNotifyii::model()->find($idModel))) {
+                    $this->redirect(array('view', 'id' => $model->id));
+                }
+
+                $this->redirect(array('/notifyii/modelNotifyii/admin'));
+            }
         }
 
         $this->render('update', array(
@@ -111,7 +117,7 @@ class ModelNotifyiiController extends Controller
         $this->loadModel($id)->delete();
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-        if (!isset($_GET['ajax']))
+        if(!isset($_GET['ajax']))
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
     }
 
@@ -134,13 +140,13 @@ class ModelNotifyiiController extends Controller
         $this->layout = '//layouts/column1';
 
         $dataProvider = new CActiveDataProvider('ModelNotifyii', array(
-            'criteria' => array(
-                'distinct' => true,
-                'select' => array(
-                    'role'
-                )
-            )
-        ));
+                    'criteria' => array(
+                        'distinct' => true,
+                        'select' => array(
+                            'role'
+                        )
+                    )
+                ));
 
         $this->render('aggregate', array(
             'dataProvider' => $dataProvider,
@@ -154,7 +160,7 @@ class ModelNotifyiiController extends Controller
     {
         $model = new ModelNotifyii('search');
         $model->unsetAttributes();  // clear any default values
-        if (isset($_GET['ModelNotifyii']))
+        if(isset($_GET['ModelNotifyii']))
             $model->attributes = $_GET['ModelNotifyii'];
 
         $this->render('admin', array(
@@ -170,7 +176,7 @@ class ModelNotifyiiController extends Controller
     public function loadModel($id)
     {
         $model = ModelNotifyii::model()->findByPk($id);
-        if ($model === null)
+        if($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
     }
@@ -181,7 +187,7 @@ class ModelNotifyiiController extends Controller
      */
     protected function performAjaxValidation($model)
     {
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'notifyii-form') {
+        if(isset($_POST['ajax']) && $_POST['ajax'] === 'notifyii-form') {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }

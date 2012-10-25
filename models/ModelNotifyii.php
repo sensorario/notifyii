@@ -157,4 +157,25 @@ class ModelNotifyii extends CActiveRecord
         return parent::beforeSave();
     }
 
+    public function afterSave()
+    {
+        $adesso = new DateTime();
+
+        $criteria = new CDbCriteria(array(
+                    'condition' => 'alert_before_date < :date',
+                    'params' => array(
+                        ':date' => $adesso->format('Y-m-d'),
+                    )
+                ));
+
+        $results = ModelNotifyii::model()
+                ->findAll($criteria);
+
+        foreach ($results as $item) {
+            $item->delete();
+        }
+
+        parent::afterSave();
+    }
+
 }
