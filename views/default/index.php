@@ -14,6 +14,9 @@
             </div>
             <?php $number = $number + 1; ?>
         <?php endwhile; ?>
+        <?php if ($number == 1) : ?>
+            <em>0 notificaions</em>
+        <?php endif; ?>
     </div>
     <div class="span-7 box last">
         <h4>On the left you can see the list of notifications displayed as flash message.</h4>
