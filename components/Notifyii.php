@@ -11,6 +11,11 @@ class Notifyii extends CComponent
     private $expire;
 
     /**
+     * @var title of notifications
+     */
+    private $title;
+
+    /**
      * @var message of notifications
      */
     private $message;
@@ -58,6 +63,16 @@ class Notifyii extends CComponent
     public function message($message = 'empty message')
     {
         $this->message = $message;
+    }
+    
+    /**
+     * This message return the title of notification
+     *
+     * @param string $title
+     */
+    public function title($title = 'empty title')
+    {
+        $this->title = $title;
     }
 
     /**
@@ -194,6 +209,7 @@ class Notifyii extends CComponent
         $notifyii->expire = date('Y-m-d', $expire);
         $notifyii->alert_after_date = date('Y-m-d', $after);
         $notifyii->alert_before_date = date('Y-m-d', $before);
+        $notifyii->title = $this->title;
         $notifyii->content = $this->message;
         $notifyii->role = $this->role;
         $notifyii->link = $this->link;

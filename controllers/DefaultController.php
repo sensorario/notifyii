@@ -22,7 +22,10 @@ class DefaultController extends Controller
         foreach ($notifiche as $notifica) {
             if($notifica->isNotReaded()) {
                 $number = $number + 1;
-                Yii::app()->user->setFlash('success' . ($number), $notifica->content);
+                Yii::app()->user->setFlash('success' . ($number), array(
+                    'message' => $notifica->content,
+                    'title' => $notifica->title
+                ));
             }
         }
 

@@ -8,7 +8,10 @@
         <?php $number = 1; ?>
         <?php while (Yii::app()->user->hasFlash('success' . ($number))) : ?>
             <?php $message = Yii::app()->user->getFlash('success' . ($number)); ?>
-            <?php echo '<div class="flash-success info">' . $message . "</div>\n"; ?>
+            <div class="flash-success info">
+                <h3><?php echo $message['title']; ?></h3>
+                <div><?php echo $message['message']; ?></div>
+            </div>
             <?php $number = $number + 1; ?>
         <?php endwhile; ?>
     </div>

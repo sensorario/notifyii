@@ -40,6 +40,7 @@ Notify the end of the world
 ---------------------------
 
     $notifyii = new Notifyii();
+    $notifyii->title('News from Mayans!');
     $notifyii->message('The end of the world');
     $notifyii->expire(new DateTime("21-12-2012"));
     $notifyii->from("-1 week");
@@ -68,12 +69,12 @@ Suppose to load all notifications in your controller:
 
 In the view, you can load all notifications
 
-    <?php foreach ($notifiche as $notifica) : ?>
-        <?php if ($notifica->isNotReaded()) : ?>
-            <div class="box">
-                <a href="<?php echo $notifica->link; ?>"><?php echo $notifica->expire; ?></a> - 
-                <a href="<?php echo $notifica->link; ?>"><?php echo $notifica->content; ?></a> <br />
-                <a href="<?php echo $this->createUrl('/notifyii/default/read', array('id' => $notifica->id)); ?>">segna questa notifica come letta</a>
-            </div>
-        <?php endif; ?>
-    <?php endforeach; ?>
+    <?php $number = 1; ?>
+    <?php while (Yii::app()->user->hasFlash('success' . ($number))) : ?>
+        <?php $message = Yii::app()->user->getFlash('success' . ($number)); ?>
+        <div class="flash-success info">
+            <h3><?php echo $message['title']; ?></h3>
+            <div><?php echo $message['message']; ?></div>
+        </div>
+        <?php $number = $number + 1; ?>
+    <?php endwhile; ?>
